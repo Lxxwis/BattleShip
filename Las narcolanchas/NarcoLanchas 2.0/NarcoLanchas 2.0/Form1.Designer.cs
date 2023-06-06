@@ -28,55 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnClick = new Button();
-            button2 = new Button();
+            btnMain1 = new Button();
+            btnMain2 = new Button();
             textBox1 = new TextBox();
+            btnConsola = new Button();
+            btnMain3 = new Button();
+            btnMain4 = new Button();
             SuspendLayout();
             // 
-            // btnClick
+            // btnMain1
             // 
-            btnClick.Location = new Point(12, 12);
-            btnClick.Name = "btnClick";
-            btnClick.Size = new Size(133, 50);
-            btnClick.TabIndex = 0;
-            btnClick.Text = "Main1";
-            btnClick.UseVisualStyleBackColor = true;
+            btnMain1.Location = new Point(12, 161);
+            btnMain1.Name = "btnMain1";
+            btnMain1.Size = new Size(133, 50);
+            btnMain1.TabIndex = 0;
+            btnMain1.Text = "Main1";
+            btnMain1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnMain2
             // 
-            button2.Location = new Point(12, 68);
-            button2.Name = "button2";
-            button2.Size = new Size(133, 50);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            btnMain2.Location = new Point(12, 329);
+            btnMain2.Name = "btnMain2";
+            btnMain2.Size = new Size(133, 50);
+            btnMain2.TabIndex = 1;
+            btnMain2.Text = "Main 2";
+            btnMain2.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
             textBox1.Location = new Point(151, 12);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(637, 426);
+            textBox1.Size = new Size(1233, 689);
             textBox1.TabIndex = 2;
+            // 
+            // btnConsola
+            // 
+            btnConsola.Location = new Point(12, 12);
+            btnConsola.Name = "btnConsola";
+            btnConsola.Size = new Size(133, 50);
+            btnConsola.TabIndex = 3;
+            btnConsola.Text = "Clear Cons.";
+            btnConsola.UseVisualStyleBackColor = true;
+            // 
+            // btnMain3
+            // 
+            btnMain3.Location = new Point(12, 502);
+            btnMain3.Name = "btnMain3";
+            btnMain3.Size = new Size(133, 50);
+            btnMain3.TabIndex = 4;
+            btnMain3.Text = "Main 3";
+            btnMain3.UseVisualStyleBackColor = true;
+            // 
+            // btnMain4
+            // 
+            btnMain4.Location = new Point(12, 651);
+            btnMain4.Name = "btnMain4";
+            btnMain4.Size = new Size(133, 50);
+            btnMain4.TabIndex = 5;
+            btnMain4.Text = "P4 Battle";
+            btnMain4.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1396, 713);
+            Controls.Add(btnMain4);
+            Controls.Add(btnMain3);
+            Controls.Add(btnConsola);
             Controls.Add(textBox1);
-            Controls.Add(button2);
-            Controls.Add(btnClick);
+            Controls.Add(btnMain2);
+            Controls.Add(btnMain1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnClick;
-        private Button button2;
+        private Button btnMain1;
+        private Button btnMain2;
         private TextBox textBox1;
+        private Button btnConsola;
+        private Button btnMain3;
+        private Button btnMain4;
     }
 }

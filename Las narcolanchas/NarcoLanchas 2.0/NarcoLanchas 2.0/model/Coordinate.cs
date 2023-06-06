@@ -6,34 +6,60 @@ using System.Threading.Tasks;
 
 namespace NarcoLanchas_2._0.model
 {
-    public class Coordinate
+    public abstract class Coordinate
     {
-        private int[] components;
+        protected int[] components;
 
-        public Coordinate(int x, int y)
+        /// <summary>
+        ///     El constructor que contendrá las coordenadas.
+        /// </summary>
+        /// <example>
+        ///     Ejemplo de Coordenada: 
+        /// <code>
+        ///     (2, 4)
+        /// </code>
+        /// </example>
+        /// 
+        /// <param name="x">Numero X</param>
+        /// <param name="y">Numero Y</param>
+        /*public Coordinate(int x, int y)
         {
             components = new int[] { x, y };
+        }*/
+
+        protected Coordinate(int dimension)
+        {
+            components = new int[dimension];
         }
 
-        public Coordinate(Coordinate c)
+        /// <summary>
+        /// Constructor para contar los components.
+        /// </summary>
+        /// <param name="c"></param>
+        protected Coordinate(Coordinate c)
         {
             components = new int[c.components.Length];
-            for(int i = 0; i < c.components.Length; i++)
+
+            for (int i = 0; i < c.components.Length; i++)
             {
                 components[i] = c.components[i];
             }
         }
 
-
-        protected void Set(int component, int value)
+        /// <summary>
+        /// Comprueba que los componentes no se salgan del index.
+        /// </summary>
+        /// <param name="component">La coordenada que introducimos</param>
+        /// <param name="value">El valor</param>
+        public void Set(int component, int value)
         {
-            if(component >= 0 && component < components.Length)
+            if (component >= 0 && component < components.Length)
             {
                 components[component] = value;
             }
             else
             {
-                Form1.console.WriteLine($"Component {component} is out of bounds");
+                throw new ArgumentException($"Component {(component == 0 ? 'x' : component == 1 ? 'y' : 'z')} is out of bounds");
             }
         }
 
@@ -45,16 +71,18 @@ namespace NarcoLanchas_2._0.model
             }
             else
             {
-                Form1.console.WriteLine($"Component {component} is out of bounds");
-                return -1;
+                throw new ArgumentException($"Component {(component == 0 ? 'x' : component == 1 ? 'y' : 'z')} is out of bounds");
             }
         }
 
         public Coordinate Add(Coordinate c)
         {
-            Coordinate caux = new Coordinate(this);
+            if (c is null)
+                throw new ArgumentNullException(nameof(c), "Coordinate is null");
 
-            int tamany = components.Length > c.components.Length ? c.components.Length : components.Length;
+            Coordinate caux = Copy();
+
+            int tamany = (components.Length > c.components.Length) ? c.components.Length : components.Length;
 
             for (int i = 0; i < tamany; i++)
             {
@@ -66,9 +94,12 @@ namespace NarcoLanchas_2._0.model
 
         public Coordinate Substract(Coordinate c)
         {
-            Coordinate caux = new Coordinate(this);
+            if (c is null)
+                throw new ArgumentNullException(nameof(c), "Coordinate is null");
 
-            int tamany = components.Length > c.components.Length ? c.components.Length : components.Length;
+            Coordinate caux = Copy();
+
+            int tamany = (components.Length > c.components.Length) ? c.components.Length : components.Length;
 
             for (int i = 0; i < tamany; i++)
             {
@@ -80,22 +111,24 @@ namespace NarcoLanchas_2._0.model
 
         public override bool Equals(object? obj)
         {
-            return base.Equals(obj);
-            /*
             if (this == obj)
                 return true;
 
             if (obj == null)
                 return false;
 
+            Type refClass = this.GetType();
+            Type testClass = obj.GetType();
+            if (!refClass.Equals(testClass))
+                return false;
+
             Coordinate other = (Coordinate)obj;
-            for(int i =  0; i < components.Length; i++)
+            for (int i = 0; i < components.Length; i++)
             {
-                if (Coordinate[i] = other.components[i])
-                    return false;
+                if (components[i] != other.components[i]) return false;
             }
+
             return true;
-            */
         }
 
         public override int GetHashCode()
@@ -104,47 +137,54 @@ namespace NarcoLanchas_2._0.model
             int result = 1;
             int hc0 = components[0].GetHashCode();
             int hc1 = components[1].GetHashCode();
+
             result = prime * result + hc0 * hc1;
+
             return result;
         }
 
-        public override string? ToString()
+        /*public override string? ToString()
         {
             string coord = "(";
 
-            for (int i = 0; i < components.Length; i++)
+            for(int i = 0; i < components.Length; i++)
             {
                 coord += components[i].ToString();
-                if (i < components.Length - 1)
-                    coord += ",";
+                if(i < components.Length - 1)
+                {
+                    coord += ", ";
+                }
             }
-
             coord += ")";
 
             return coord;
+        }*/
+
+        public override string ToString()
+        {
+            return "Coordinate";
         }
 
-        public Coordinate Copy()
+        /*public Coordinate Copy()
         {
-            return new Coordinate(this);
-        }
+            return new Coordinate(this); 
+        }*/
 
-        public HashSet<Coordinate> AdjacentsCoordinates()
+        /*public HashSet<Coordinate> AdjacentCoordinates()
         {
-            HashSet<Coordinate> Adjacents = new HashSet<Coordinate>();
+            HashSet<Coordinate> adjacents = new HashSet<Coordinate>();
 
             for (int x = -1; x < 2; x++)
-            {
                 for (int y = -1; y < 2; y++)
-                {
                     if (x == 0 && y == 0)
                         continue;
                     else
-                        Adjacents.Add(new Coordinate(Get(0) + x, Get(1) + y));
-                }
-            }
+                        adjacents.Add(new Coordinate(Get(0) + x, Get(1) + y));
 
-            return Adjacents;
-        }
+            return adjacents;
+        }*/
+
+        public abstract Coordinate Copy();
+        public abstract HashSet<Coordinate> AdjacentCoordinates();
     }
 }

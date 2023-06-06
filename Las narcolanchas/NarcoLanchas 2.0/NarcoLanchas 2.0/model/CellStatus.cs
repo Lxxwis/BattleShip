@@ -1,6 +1,6 @@
 ﻿public enum CellStatus
 {
-    WHATER,
+    WATER,
     HIT, 
     DESTROYED
 }

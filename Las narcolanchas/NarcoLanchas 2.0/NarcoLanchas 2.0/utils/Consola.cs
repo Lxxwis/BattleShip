@@ -40,7 +40,7 @@ namespace NarcoLanchas_2._0.utils
 
         public void WriteLine()
         {
-            WriteLine(String.Empty);
+            WriteLine(string.Empty);
         }
 
         public void Clear()
