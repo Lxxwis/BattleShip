@@ -39,7 +39,66 @@ namespace NarcoLanchas_2._0.model.io
 
         public Coordinate NextShoot(Board b)
         {
-            throw new NotImplementedException();
+            if (b is null)
+                throw new ArgumentNullException();
+
+            HashSet<string> comandos = new HashSet<string>()
+            {
+                "shoot",
+                "exit"
+            };
+
+            bool isExit = false;
+
+
+            //string typeCraft;
+            //Orientation typeOrientation;
+
+            while (indexCommand < commands.Length && !isExit)
+            {
+                Regex re = new Regex(@"[\s]+");
+                string[] cmd = re.Split(commands[indexCommand++]);
+
+                if (comandos.Contains(cmd[0]))
+                {
+                    switch (cmd[0])
+                    {
+                        case "shoot":
+                            if (cmd.Length < 3 || cmd.Length > 4)
+                                throw new BattleshipIOException("Error: number of params incorrect");
+                            else
+                            {
+                                Coordinate position;
+
+                                try
+                                {
+                                    int x = int.Parse(cmd[1]);
+                                    int y = int.Parse(cmd[2]);
+
+                                    if (cmd.Length == 3)    // Coordinate2D
+                                        position = CoordinateFactory.CreateCoordinate(x, y);
+                                    else                    // Coordinate3D
+                                    {
+                                        int z = int.Parse(cmd[3]);
+                                        position = CoordinateFactory.CreateCoordinate(x, y, z);
+                                    }
+
+                                    b.Hit(position);
+                                    return position;
+                                }
+                                catch (FormatException)
+                                {
+                                    throw new BattleshipIOException("Error: coordinate not valid");
+                                }
+                            }
+                        case "exit":
+                            return null;
+                    }
+                }
+                else
+                    throw new BattleshipIOException($"Error: command {cmd[0]} not found");
+            }
+            return null;
         }
 
         public void PutCrafts(Board b)

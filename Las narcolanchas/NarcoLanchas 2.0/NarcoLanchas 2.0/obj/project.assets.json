@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luismi\\OneDrive\\Escritorio\\Las narcolanchas\\NarcoLanchas 2.0\\NarcoLanchas 2.0\\NarcoLanchas 2.0.csproj",
-      "projectName": "NarcoLanchas 2.0",
-      "projectPath": "C:\\Users\\Luismi\\OneDrive\\Escritorio\\Las narcolanchas\\NarcoLanchas 2.0\\NarcoLanchas 2.0\\NarcoLanchas 2.0.csproj",
+      "projectUniqueName": "C:\\Users\\Luismi\\OneDrive\\Escritorio\\Las narcolanchas\\NarcoLanchas 2.0\\NarcoLanchas 2.0\\Narcolanchas 2.0.csproj",
+      "projectName": "Narcolanchas 2.0",
+      "projectPath": "C:\\Users\\Luismi\\OneDrive\\Escritorio\\Las narcolanchas\\NarcoLanchas 2.0\\NarcoLanchas 2.0\\Narcolanchas 2.0.csproj",
       "packagesPath": "C:\\Users\\Luismi\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Luismi\\OneDrive\\Escritorio\\Las narcolanchas\\NarcoLanchas 2.0\\NarcoLanchas 2.0\\obj\\",
       "projectStyle": "PackageReference",

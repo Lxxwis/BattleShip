@@ -5,3 +5,13 @@ C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanch
 C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\obj\Debug\net6.0-windows\NarcoLanchas 2.0.AssemblyInfoInputs.cache
 C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\obj\Debug\net6.0-windows\NarcoLanchas 2.0.AssemblyInfo.cs
 C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\obj\Debug\net6.0-windows\NarcoLanchas 2.0.csproj.CoreCompileInputs.cache
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\bin\Debug\net6.0-windows\NarcoLanchas 2.0.exe
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\bin\Debug\net6.0-windows\NarcoLanchas 2.0.deps.json
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\bin\Debug\net6.0-windows\NarcoLanchas 2.0.runtimeconfig.json
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\bin\Debug\net6.0-windows\NarcoLanchas 2.0.dll
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\bin\Debug\net6.0-windows\NarcoLanchas 2.0.pdb
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\obj\Debug\net6.0-windows\NarcoLanchas 2.0.dll
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\obj\Debug\net6.0-windows\refint\NarcoLanchas 2.0.dll
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\obj\Debug\net6.0-windows\NarcoLanchas 2.0.pdb
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\obj\Debug\net6.0-windows\NarcoLanchas 2.0.genruntimeconfig.cache
+C:\Users\Luismi\OneDrive\Escritorio\Las narcolanchas\NarcoLanchas 2.0\NarcoLanchas 2.0\obj\Debug\net6.0-windows\ref\NarcoLanchas 2.0.dll

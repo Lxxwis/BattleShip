@@ -681,9 +681,154 @@ namespace NarcoLanchas_2._0
             console.WriteLine(b2.Show(true));
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainBoard3DPlayerFile()
         {
+            IPlayer player1 = null;
+            IPlayer player2 = null;
+            Board b1 = new Board3D(6);
+            Board b2 = new Board3D(6);
 
+            try
+            {
+                //player1 = PlayerFactory.CreatePlayer("John", @"..\..\..\files\playerfile-john.txt");
+                //player2 = PlayerFactory.CreatePlayer("Mary", @"..\..\..\files\playerfile-mary.txt");
+                player1 = new PlayerFile("John", @"..\..\..\files\playerfile-john.txt");
+                player2 = new PlayerFile("Mary", @"..\..\..\files\playerfile-mary.txt");
+
+            }
+            catch (BattleshipIOException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en la creación de player1 y/o player2");
+            }
+
+            try
+            {
+                player1.PutCrafts(b1);
+                player2.PutCrafts(b2);
+            }
+            catch (InvalidCoordinateException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en putcrafts");
+            }
+            catch (NextToAnotherCraftException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en putcrafts");
+
+            }
+            catch (OccupiedCoordinateException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en putcrafts");
+            }
+            catch (BattleshipIOException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en putcrafts");
+            }
+
+            // We process all shots by player 1 at board 2
+            try
+            {
+                Coordinate c;
+                do
+                {
+                    c = player1.NextShoot(b2);
+                    if (c is not null)
+                    {
+                        console.WriteLine($"{c}");
+                        console.WriteLine(b2.Show(false));
+                        console.WriteLine("--------------------------------");
+                    }
+                } while (c is not null);
+            }
+            catch (CoordinateAlreadyHitException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en NextShoot player1");
+            }
+            catch (InvalidCoordinateException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en NextShoot player1");
+            }
+            catch (BattleshipIOException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en NextShoot player1");
+            }
+
+            console.WriteLine("=============================");
+
+            // We process all shots by player 2 at board 1
+            try
+            {
+                Coordinate c;
+                do
+                {
+                    c = player2.NextShoot(b1);
+                    if (c is not null)
+                    {
+                        console.WriteLine($"{c}");
+                        console.WriteLine(b1.Show(false));
+                        console.WriteLine("--------------------------------");
+                    }
+                } while (c != null);
+            }
+            catch (CoordinateAlreadyHitException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en NextShoot player2");
+            }
+            catch (InvalidCoordinateException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en NextShoot player2");
+            }
+            catch (BattleshipIOException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+                console.WriteLine("Ha cascado en NextShoot player2");
+            }
+
+            console.WriteLine("=============================");
+            console.WriteLine(b1.Show(true));
+            console.WriteLine("--------------------------------");
+            console.WriteLine(b2.Show(true));
+        }
+
+        private void btn4Main_Click(object sender, EventArgs e)
+        {
+            console.WriteLine("Playing File Game...");
+
+            MainBoard3DPlayerFile();
+
+            console.WriteLine("\r\n%-%-%-%-%-%-%-%-%-%-%-%-%-%-%\r\n");
+
+            console.WriteLine("Playing Random Game. Putting Crafts...");
+
+            try
+            {
+                IPlayer player1 = PlayerFactory.CreatePlayer("John", "14341");
+                IPlayer player2 = PlayerFactory.CreatePlayer("Mary", "13431");
+
+                Board b1 = new Board3D(6);
+                Board b2 = new Board3D(6);
+
+                Game game = new Game(b1, b2, player1, player2);
+
+                IVisualiser visualiser = VisualiserFactory.CreateVisualiser("Console", game);
+
+                game.PlayGame(visualiser);
+
+                console.WriteLine("Done");
+            }
+            catch (BattleshipIOException e1)
+            {
+                console.WriteLine(e1.GetMessage());
+            }
         }
     }
 }

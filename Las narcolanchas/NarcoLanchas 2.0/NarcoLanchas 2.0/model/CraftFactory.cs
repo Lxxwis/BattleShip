@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NarcoLanchas_2._0.model
 {
-    internal class CraftFactory
+    public class CraftFactory
     {
         public static Craft CreateCraft(string type, Orientation orientation)
         {
@@ -15,9 +15,9 @@ namespace NarcoLanchas_2._0.model
             string qualifier;
 
             if ("Bomber".Equals(type) || "Fighter".Equals(type) || "Transport".Equals(type))
-                qualifier = "BattleShip.model.aircraft.";
+                qualifier = "NarcoLanchas_2._0.model.aircraft.";
             else if ("Battleship".Equals(type) || "Carrier".Equals(type) || "Cruiser".Equals(type) || "Destroyer".Equals(type))
-                qualifier = "BattleShip.model.ship.";
+                qualifier = "NarcoLanchas_2._0.model.ship.";
             else
                 qualifier = "";
 
@@ -28,6 +28,7 @@ namespace NarcoLanchas_2._0.model
                 Type[] types = new Type[1];
                 types[0] = typeof(Orientation);
 
+                //ConstructorInfo constructor = craft.GetConstructor(types);
                 ConstructorInfo constructor = craft.GetConstructor(types);
 
                 return (Craft)craft.InvokeMember(
@@ -43,6 +44,10 @@ namespace NarcoLanchas_2._0.model
                 return null;
             }
             catch (ArgumentException)
+            {
+                return null;
+            }
+            catch (NullReferenceException)
             {
                 return null;
             }
